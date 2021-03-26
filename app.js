@@ -7,7 +7,11 @@ const bodyParser = require('body-parser')
 const app = express();
 app.use(bodyParser.json());
 
-app.get('/', async function(req, res) {
+app.get('/', function(res) {
+    res.send('hello')
+})
+
+app.get('/airtable', async function(req, res) {
     await fetch('https://api.airtable.com/v0/appR9dvK14hO5FTYg/tabledemo', {
             headers: {
                 'Authorization': 'Bearer keyUT1JCMYroyPOD3',
