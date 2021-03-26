@@ -1,25 +1,13 @@
 const fetch = require('node-fetch');
 const express = require('express');
-// const request = require('request');
+
 const bodyParser = require('body-parser')
-    // const mongoose = require('mongoose');
-const Profile = require('./models/user')
 
-// mongoose.connect('mongodb://localhost:27017/demo', { useNewUrlParser: true, useUnifiedTopology: true });
-
-// mongoose.Promise = global.Promise;
-
-// const db = mongoose.connection;
-
-// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 const app = express();
 app.use(bodyParser.json());
 
 app.get('/', async function(req, res) {
-    // const data = await Profile.find()
-    // const data = []
-
     await fetch('https://api.airtable.com/v0/appR9dvK14hO5FTYg/tabledemo', {
             headers: {
                 'Authorization': 'Bearer keyUT1JCMYroyPOD3',
@@ -27,13 +15,8 @@ app.get('/', async function(req, res) {
         })
         .then(res => res.json())
         .then(json => {
-            // json.records.forEach(ele => {
-            //     Profile.create(ele)
-            // });
             res.json(json);
         });
-
-
 })
 
 
@@ -48,7 +31,6 @@ app.post('/update', async function(req, res) { //cập nhật
             headers: {
                 'Authorization': 'Bearer keyUT1JCMYroyPOD3',
                 'Content-Type': 'application/json',
-
             },
         })
         .then(res => res.json()) // expecting a json response
