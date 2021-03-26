@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const app = express();
 app.use(bodyParser.json());
 
-app.get('/', function(res) {
+app.get('/', function(req, res) {
     res.send('hello')
 })
 
@@ -201,4 +201,4 @@ app.post('/graphql/update', async(req, res) => {
     // res.send(Buffer.from('<p>some html</p>'))
     // res.vary('User-Agent').render('docs')
     // })
-app.listen(3000);
+app.listen(8080);
